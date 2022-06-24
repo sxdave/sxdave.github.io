@@ -1,212 +1,527 @@
-<!DOCTYPE html>
+<span style='color:#607d8b'></span><!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Scrolling Nav - Start Bootstrap Template</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="./static/css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <div class="container px-4">
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Song Belong</title>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="./static/css/styles.css" rel="stylesheet" />
+    <style>
+      .todo {
+        color: red;
+      }
+      section{
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+      }
+    </style>
+  </head>
+  <body id="page-top">
+    <!-- Navigation-->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+      id="mainNav"
+    >
+      <div class="container px-4">
+        <a class="navbar-brand" href="#page-top">Song Belong</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#eda">EDA</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#ml">Machine Learning</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#conclusion">Conclusion</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header-->
+    <header class="bg-secondary bg-gradient text-white tmp">
+      <div class="container px-4 text-center">
+        <h1 class="fw-bolder">Song Belong</h1>
+        <p class="lead">A Music Classification Product <br> by the Gravity Wells team</p>
+        <a class="btn btn-lg btn-light" href="#about">See Our Project!</a>
+      </div>
+    </header>
+
+    <!-- About section-->
+    <section id="about">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h2>About our Project</h2>
+            <p class="lead">
+              We decided to create a song classification product that would
+              accurately calculate whether a song belonged in a given playlist
+              or not. Using specific attributes of a song, such as danceability,
+              valence, and acousticness, we used machine learning techniques to
+              predict if a song could be included in a playlist. Many different
+              technologies were used to create this, such as:
+            </p>
+            <ul>
+              <li>The Kaggle website to collect datasets</li>
+              <li>The "pandas" library to manipulate and clean data</li>
+              <li>
+                Various external libraries for machine learning, such as
+                "sklearn" and "tensorflow"
+              </li>
+              <li>Cocalc and Github to collaborate and run our code</li>
+            </ul>
+            <p class="lead">
+              With music being an important part of our lives, we decided to create a system that could predict whether a song belongs in a playlist by comparing it to songs already in it. During developement, we faced many challenges such as having problems while cleaning up the data or our machine learning algorithm not being able to make accurate predictions. Furthermore, due to our <a href="#eda">data</a> being extremely large, we suffered problems with Cocalc servers crashing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDA section-->
+    <section id="eda" class="bg-light">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-9">
+            <h1 id="top-level-heading">🕵 Exploratory Data Analysis (EDA)</h1>
+            <br />
+            <p class="lead">
+One of our datasets, collected from Kaggle, had 12.8 million songs and their corresponding playlists. We also needed to have data for individual playlists, which included 1.2 million songs and their acoustic features. After merging these two sets into one large dataframe, we had a list of about 5.8 million songs and their attributes, as well as the playlist they belonged to. While curating and cleaning our data, we ran into a variety of problems, such as column names not being uniform and the Cocalc servers crashing due to the size of our data. 
+           </p>
+          </div>
+          <div class="col-lg-8">
+            <h3>Correlation Matrix</h3>
+            <p class="lead">
+              We use a correlation matrix—shown as a heatmap — to visualize what variables from our
+              dataset have strong interactions with each other. Using this information, we can make estimates about the weight of a value in the learning process or even rid our data of unneeded attributes. In a heatmap, a brighter color translates to a higher correlation between the x and y values. A 1 is a perfect linear correlation (as one value increases, so does the other) and 0 means no correlation at all. You can see strong relationships in pairs like <i>energy and loudness</i> or <i>danceability and valence.</i>
+              Our plots below are to visualize and explain some of these correlations.
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="800"
+              title="Correlation Matrix"
+              src="./static/Charts/cor_mat.html"
+            ></iframe>
+            <h3>Pairplots</h3>
+            <p class="lead">
+              This visualization is essentially a more in depth correlation
+              matrix, showing the correlation between data via multiple scatter
+              plots. Diagonals are omitted due to the fact that data will always
+              correlate with itself, making it unnecessary noise. Interesting to note is the fact that "loudness" and "energy" have, at best, a shaky correlation with each other and "loudness_pl" and "energy_pl" have a very tight correlation with each other; however, the correlation between loudness and energy, pl or not, is stronger than that of the correlations between any of the other categories presented. From this, we can see that there is a higher variability in how the acoustic attributes of a song interact with each other when compared to the average acoustic attributes of playlists shown by variables ending in "_pl".
+            <br />
+            <iframe
+              width="1050"
+              height="1050"
+              src="./static/Charts/Scatter_Matrix.html"
+            ></iframe>
+            <h3>Scatterplot Between Loudness, Energy, and Acousticness</h3>
+            <p class="lead">
+              This visualization shows a strong relationship between loudness and
+              energy. If we look at the correlation matrix we can see that acousticness has no                 strong correlation with either loudness or energy. However when acousticness is                 compared with both at once a strong pattern emerges shown color. This shows a more               complex pattern that is very hard to see at first, and is not clear on the                       correlation matrix, but does still exist. Complex patterns like these that can                   hide in the data can be essential to finding meaningful insights from our data. This pattern in particular makes intuitive sense, as we know that acoustic songs tend to be slower/quieter.
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="650"
+              src="./static/Charts/RelationshipBetweenLoudnessEnergyAcousticness.html"
+            >
+            </iframe>
+            <h3>Scatterplot Between Energy, Time Signature, and Loudness</h3>
+            <p class="lead">
+              The visualization showcases the relationship between Energy, Time
+              Signature, and Loudness. There is a strong positive correlation
+              between all three variables. Generally as energy increases, time
+              signature and loudness does as well. A possible explanation for this trend is that a higher time signature might associate with a higher beat which in turn would result in a higher energy and loudness level. 
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="650"
+              src="./static/Charts/RelationshipBetweenEnergyTimeSignatureLoudness.html"
+            >
+            </iframe>
+            <h3>
+              How do instruments affect the enjoyability of a song?
+            </h3>
+            <p class="lead">
+              This visualization showcases the relationship between valence,
+              danceability, and instrumentalness. There is a strong positive
+              correlation between danceability and valence while there is a
+              strong negative correlation between instrumentalness with the two
+              other variables. A potential reason for this is because a large factor of enjoyability comes from being able to sing along to a song. Not only this, but lyrics help to maintain rhythm that is essential when dancing to music. When there are very little words and a lot of instruments in a song, it's likely you can neither sing nor dance to it.
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="650"
+              src="./static/Charts/RelationshipBetweenValenceDanceability,Intrumentalness.html"
+            >
+            </iframe>
+            <h3>Song Attributes and Positivity</h3>
+            <p class="lead">
+              A scatter plot is used to visualize the correlation between
+              <i>loudness, acousticness, and valence (overall positivity).</i>
+              Notice the relationship between the three values. Happier songs
+              tend to be louder, and sadder songs are more acoustic. You can see
+              that as valence increases, our dots become darker, meaning that
+              the songs are not very acoustic. The happiest songs tend to have
+              medium to high volumes.
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="650"
+              title="Effects of Loudness and Acousticness on Overall Positivity"
+              src="./static/Charts/LOUDvsVALvsACOUSTICNESS.html"
+            ></iframe>
+            <h3>Dancebility vs Energy</h3>
+            <p class="lead">
+              We use a correlation matrix (below) to visualize how danceability,
+              energy and tempo interact with each other. In the graph, we can see that although songs with varying levels of energy/temp can have a large spread of danceability, songs with very low energy are typically not very danceable. On the graph there are vertical lines made by the data.
+              This shows how many songs use the same tempo in their songs. For
+              example, on the graph there is a vertical line when the tempo is 
+              100 and also 150.
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="650"
+              title="Correlation Matrix"
+              src="./static/Charts/dance__vs_energy_tempo.html"
+            ></iframe>
+            <h3>Distribution of Loudness</h3>
+            <p class="lead">
+              This histogram depicts the distribution of loudness throughout the
+              songs. It shows that the distribution is right-skewed and unimodal,
+              with a center at around 22 and a spread from -15 to -32. There are
+              no significant outliers.
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="650"
+              title="Distribution of Loudness"
+              src="./static/Charts/LoudnessDistribution.html"
+            ></iframe>
+            <h3>Three-Way-Boxplot</h3>
+            <p class="lead">
+              This boxplot depicts the relation between time signature, energy,
+              and key. Within Time_signatures 3, 4, 5, there is fairly even distribution between the data points in regards to key, and energy. However, there is large variability across the distribution of data points in regards to key and energy within time_signatures 0 and 1. One will note that there are no boxplots for time signature 2, this is simply because our dataset did not contain any tracks with a time signature of 2.
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="650"
+              title="Three Way Boxplot"
+              src="./static/Charts/ThreeWayBoxplot.html"
+            ></iframe>
+            <h3>Violin Plot Between Time_Signature and Loudness</h3>
+            <p class="lead">
+              Violin plots depict the summary statistics and density curves
+              between two variables, where a greater width correlates with a greater frequency. This violin plot relates time_signature 
+              loudness. Across all values of time_signature, the distribution of loudness is unimodal and left-skewed. We can see that variability of loudness decreases as time signature increases, with Time_Signature 0 producing the most variability and time_signature 5 having the least. Across all values of time_signature, there is an approximate peak or center at 20.
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="700"
+              title="Violin Plot Between Time_Signature and Loudness"
+              src="./static/Charts/ViolinPlot1.html"
+            ></iframe>
+            <h3>Two-Way-Boxplot</h3>
+            <p class="lead">
+              This boxplot depicts the relation between key and acousticness. Although all the boxplots have similar min and max values, the distribution between varies. For key values 1, 2, 4, 6, 7, 9, 11, 75% of the data is spread below an acousticness value of 0.7.
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="650"
+              title="Boxplot Between Key and Acousticness"
+              src="./static/Charts/TwoWayBoxplot.html"
+            ></iframe>
+            <h3>Violin Plot Between Time_Signature and Danceability</h3>
+            <p class="lead">
+              This violin plot relates time_signature and danceability showing
+              that at a time_signature of 4, there is the largest center and distribution. At time_signatures 1, 3, 5, there is an approximate center at 0.4 and a spread from 0 to 0.6. The distributions at time_signatures 1 and 3 are bimodal and fairly symmetric. The distributions at time_signature 4 and 5 are both unimodal. However time_signature 4 is left-skewed while time_signature 5 is right_skewed.
+            </p>
+            <br />
+            <iframe
+              width="800"
+              height="650"
+              title="Violin Plot Between Time_Signature and Danceability"
+              src="./static/Charts/ViolinPlot2.html"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ML section-->
+    <section id="ml">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h1>Machine Learning</h1>
+            <br />
+            <h3>Support Vector Machine (SVM)</h3>
+            <p class="lead">
+              SVM is a supervised machine learning model. It is a classification
+              method which groups data points into different categories using a
+              hyperplane. Because SVMs classify data point based on their
+              location, this machine learning method requires data with
+              clustering to perform well. <br /><br />To train an SVM, we used the SVC
+              module from the SKLearn library. However, we found this to be too
+              slow, and switched to the more optimized LinearSVC module.
+            </p>
+            <img src="./static/images/svm.png" alt="Support Vector Machine" style="height:400;">
+
+            <h3>Random Forest</h3>
+            <p class="lead">
+              Decision trees are a machine learning model that uses a specific
+              condition on a "leaf" to classify data. If the condition is met,
+              the data is passed to the right leaf, and if the condition is not
+              met, the data is passed to the left leaf. Each leaf after will
+              then repeat the process until the data is properly classified, or
+              until the maximum depth is reached. <br /><br />
+
+              Random forests consist of a “forest” of decision trees. They
+              operate by first bootstrapping the data, which is basically taking
+              random samples from the data, feeding the bootstrapped data to the
+              decision trees until they finish, tallying up the results, and
+              returning whichever result had the most tallies. Think of a jury
+              system: each tree in the forest produces a “jury,” and then the
+              votes are pooled and the winning product is returned.<br /><br />
+
+              When running our random forest model, a few hyper-parameters were taken into account, such as the number of decision trees and the maximum depth of each tree. We found that with a higher number of trees we would get much higher accuracy at the cost of computing power. Other arguments were given that specified the minimum number of decisions at each branch and tree, as well as the maximum depth of a tree. We found that these parameters had very little effect on performance, though, and decided they weren’t worth the computational power. Our best accuracy, achieved through a high number of trees and a moderate depth, sat at around 59%, the highest accuracy of any ML model used. This accuracy, however, wasn't absolute as decision trees and, by extension, random forests are highly sensitive to any change in data, and accuracy measures would sometimes drop, although it would only typically ever drop by 1%>. While being less than ideal, it wasn't fatal.
+            </p>
+            <img src="./static/images/decision-tree-nodes.png" alt="A decision tree" style="height:400;">
+
+            <h3>Neural Nets</h3>
+            <p class="lead">
+              Neural Networks are a subset of machine learning that uses
+              algorithms to understand underlying relationships of data. In this
+              project, they are being used to understand the relationships
+              between various attributes of a song and a playlist to predict
+              whether said song belongs in a playlist.<br /><br />To test and finetune
+              some of the hyperparameters, the GridSearchCV algorithm was used
+              to test multiple possibilities for hidden layers or alpha values
+              and determine which combination worked best with the data.
+            </p>
+            <img src="./static/images/nn.png" alt="A decision tree" style="height:400;">
+            <!--  <img src="Neural Network Picture.jpeg" alt="A neural network" style="width:700px;height:500px;">  -->
+
+            <h3>Results</h3>
+            <p class="lead">
+              Within the code for each of our models, the data
+              is first split into random train and test subsets (80-20). From
+              there, the classifier uses the test data to make predictions.
+              After each run, an accuracy score was produced to assess how well
+              the classifier was able to make predictions.<br /><br />
+              Between our three models, the random forest approach performed the best, as can be seen in the comparison of results below.
+            </p>
+            <iframe
+              width="800"
+              height="400"
+              src="./static/Charts/ml_results.html"
+            ></iframe>
+            <p class="lead">
+              Unfortunately, our models were unable to achieve high accuracy with our dataset. This is most likely due to the complex and subjective nature of music. In addition, our playlist dataset was automatically scraped from Spotify, which could have resulted in the inclusion of strange or inconsistent playlists.<br><br>
+              To more deeply explore the results from each model, confusion matrices were generated.
+            </p>
+            <div class="row gx-5 justify-content-center">
+              <img src="./static/images/conf_mat_svm.png" alt="A decision tree" style="width:260;">
+              <img src="./static/images/conf_mat_rf.png" alt="A decision tree" style="width:260;">
+              <img src="./static/images/conf_mat_nn.png" alt="A decision tree" style="width:260;">
             </div>
-        </nav>
+            <p class="lead">
+              The confusion matrix for SVM shows that negative gets predicted a larger number of times compared to positive. This indicates that there is both a high percentage of true negative and false negative values compared to true positive and false positive. However, compared to the confusion matrices of the other two models, this model has the most even spread across all values<br><br>
+              The matrix for the neural net shows us that the model learned to predict the same result every time in order to get at least 50% right. This is a common problem for machine learning models, as when the model tries to find patterns and make guesses it gets below 50% so it decides that it can get a higher accuracy by guessing the same thing every time, especially since there are only 2 options. This also shows our network's inability to model out more complex relationships in the data.<br><br>
+              The matrix for the random forest model, which produced our best performance, shows a much stronger trend towards predicting true positives and negatives. Although the model still had lower accuracy, we can see that it is still able to at least partially model the relationship between acoustic features for songs and their respective playlists.<br><br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Header-->
-        <header class="bg-secondary bg-gradient text-white">
-            <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Put Title Here</h1>
-                <p class="lead">Put other stuff here</p>
-                <a class="btn btn-lg btn-light" href="#about">See Project!</a>
+    <!-- Conclusion section-->
+    <section id="conclusion" class="bg-light">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h2>Conclusion</h2>
+            <br />
+            <p class="lead">
+              In just 2 weeks, we were able to create a product that attempts to predict whether or not a song belongs in a
+              given playlist. With our limited team size and plenty of technical
+              drawbacks, we still persevered and achieved an end result that
+              satisfied our interests. Despite the hours spent optimizing parameters, the models' accuracy didn't quite reach our standards due to the unpredictable nature of some of our models, namely random forests. Our project can be a stepping stone to
+              greater things, such as true song recommendation or a genre
+              classifier. This project has helped give us necessary experience that will help further our knowledge and understanding in the sub-fields of data science and machine learning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team section-->
+    <section id="team">
+      <div class="container px-5" , style="margin-bottom: 3rem !important">
+        <div class="row gx-5 justify-content-center">
+          <div class="col-lg-9 col-xl-6">
+            <div class="text-center">
+              <h2 class="fw-bolder">Team</h2>
+              <p class="lead fw-normal text-muted mb-5">
+                Meet the extraordinary Gravity Wells Team
+              </p>
             </div>
-        </header>
-
-        <!-- About section-->
-        <section id="about">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>About our Project</h2>
-                        <p class="lead">We decided to create a song classification product that would accurately calculate whether a song belonged in a given playlist or not. Using specific attributes of a song, we used machine learning techniques to predict if a song could be included in a playlist.</p>
-                        <ul>
-                            <li>Clickable nav links that smooth scroll to page sections</li>
-                            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-                        </ul>
-                    </div>
+          </div>
+        </div>
+        <div class="row gx-5 justify-content-center">
+          <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+              <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">
+                  Student
                 </div>
+                <a class="text-decoration-none link-dark stretched-link"
+                  ><h5 class="card-title mb-3">Aaron E. Simpson</h5></a
+                >
+                <a class="text-decoration-none link-dark stretched-link"
+                  >My name is Aaron and I have little experience coding with C#
+                  and then Python3. I joined AI in order to get a good idea of
+                  machine learning and whether or not I want to pursue, and
+                  found out how much of a passion and fascination I have with
+                  AI. Hopefully I can find a long fulfilling career in working
+                  with AI.</a
+                >
+              </div>
             </div>
-        </section>
-
-        <!-- EDA section-->
-        <section id="eda">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h3>Correlation Matrix</h3>
-                            <p class="lead">We use a correlation matrix (below) to visualize what variables from our dataset have strong interactions with each other.</p>
-                            <br>
-                            <iframe width="900" height="900" title="Correlation Matrix" src="./static/Charts/cor_mat.html"></iframe> <br>
-                      <h3>Pairplots</h3>
-                            <p class = "lead"> The visualization is essentially a more in depth correlation matrix, showing the correlation between data via multiple scatter plots. Diagonals are omitted due to the fact that data will always correlate with itself, making it unnecessary noise.</p>
-                            <br>
-                      <iframe width="1000" height="1000" src="./static/Charts/Scatter_Matrix.html"> </iframe> <br>
-                            <h3>Scatterplot Between Loudness, Energy, and Acousticness</h3>
-                              <p class = "lead"> The visualization showcases the relationship between loudness, energy, and acousticness. There is a strong, positive, nonlinear correlation between loudness and energy while there is a negative correlation between acousticness and the other two variables.</p>
-                              <br>
-                      <iframe width="900" height="900" src="./static/Charts/RelationshipBetweenLoudnessEnergyAcousticness.html"> </iframe> <br>
-                            <h3>Scatterplot Between Energy_pl, Time Signature_pl, and Loudness_pl</h3>
-                              <p class = "lead"> The visualization showcases the relationship between Energy_pl, Time Signature_pl, and Loudness_pl. There is a strong positive correlation between all three variables. Generally as energy_pl increases, time signature_pl and loudness_pl does as well. </p>
-                              <br>
-                      <iframe width="900" height="900" src="./static/Charts/RelationshipBetweenEnergyTimeSignatureLoudness.html"> </iframe> <br>
-                            <h3>Scatterplot Between Valence_pl, Danceability_pl, Instrumentalness_pl</h3>
-                              <p class = "lead"> The visualization showcases the relationship between valence_pl, danceability_pl, and instrumentalness_pl. There is a strong positive correlation between danceability_pl and valence_pl while there is a strong negative correlation between instrumentalness_pl with the two other variables. </p>
-                              <br>
-                  <iframe width="900" height="900" src="./static/Charts/RelationshipBetweenValenceDanceability,Intrumentalness.html"> </iframe> <br>
-                     <h3>Song Attributes and Positivity</h3>
-                            <p class="lead">A scatter plot is used to visualize the correlation between <i>loudness, acousticness, and valence (overall positivity).</i> Notice the relationship between the three values. Happier songs tend to be louder, and sadder songs are more acoustic. You can see that as valence increases, our dots become darker, meaning that the songs are not very acoustic. The happiest songs tend to have medium to high volumes. </p>
-                            <br>
-                            <iframe width="900" height="900" title="Effects of Loudness and Acousticness on Overall Positivity" src="./static/Charts/LOUDvsVALvsACOUSTICNESS.html"></iframe> <br>
-                      <h3>Dancebility vs energy</h3>
-                            <p class="lead">We use a correlation matrix (below) to visualize how dancebility, energy and tempo interact with each other. In the graph you can see that when the energy goes up so does the dancebility. You can also see that there is high dancebility when the tempo is between 100 and 150</p>
-                            <br>
-                            <iframe width="900" height="900" title="Correlation Matrix" src="./static/Charts/dance__vs_energy_tempo.html"></iframe> <br>
-                       </div>
+          </div>
+          <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+              <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">
+                  Student
                 </div>
+                <a class="text-decoration-none link-dark stretched-link"
+                  ><h5 class="card-title mb-3">Patrick Howland</h5></a
+                >
+                <a class="text-decoration-none link-dark stretched-link"
+                  >I am a rising senior and I have been coding in python for
+                  about 6 months. I wanted to do AI camp because it was going to
+                  be a nice segway into machine learning as well as learning how
+                  to work with a team.</a
+                >
+              </div>
             </div>
-        </section>
-
-        <!-- ML section-->
-        <section class="bg-light" id="services">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h1>Machine Learning</h1> <br>
-                        <p>OVERVIEW</p>
-
-                        <h3>Support Vector Machine (SVM)</h3>
-                        <p class="lead">SVM is a supervised machine learning model. It is a classification method which groups data points into different categories using a hyperplane. Because SVMs classify data point based on their location, this machine learning method requires data with clustering to perform well. To train an SVM, we used the SVC module from the SKLearn library. However, we found this to be too slow, and switched to the more optimized LinearSVC module.</p>
-
-                        <h3>Random Forest</h3>
-                        <p class="lead">	Decision trees are tree-like models consisting of branches and leaves. Leaves are conditions that, when met, pass the state to the next branch where the process continues. <br><br>
-
-Random forests consist of a “forest” of decision trees. They operate by first bootstrapping the data, which is basically taking random samples from the data, feeding the bootstrapped data to the decision trees until they finish, tallying up the results, and returning whichever result had the most tallies. Think of a jury system: each tree in the forest produces a “jury,” and then the votes are pooled and the winning product is returned.
-</p>
-
-                        <h3>Neural Nets</h3>
-                        <p class="lead">Neural Networks are a subset of machine learning that uses algorithms to understand underlying relationships of data. In this project, they are being used to understand the relationships between various attributes of a song and a playlist to predict whether said song belongs in a playlist. Within the code, the data is first split into random train and test subsets (80-20). From there, the classifier uses the test data to make predictions. After each run, an accuracy score was produced to assess how well the classifier was able to make predictions. To test and finetune some of the hyperparameters, the GridSearchCV algorithm was used to test multiple possibilities for hidden layers or alpha values and determine which combination worked best with the data. </p>
-                      <!--  <img src="Neural Network Picture.jpeg" alt="A neural network" style="width:700px;height:500px;">  -->
-                    </div>
+          </div>
+          <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+              <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">
+                  Student
                 </div>
+                <a class="text-decoration-none link-dark stretched-link"
+                  ><h5 class="card-title mb-3">Shriya Dave</h5>
+                  I am a graduated senior and I have been coding for 2-3 years,
+                  starting with Java. I joined AI Camp to learn more about Data
+                  Science specifically and gain more experience before
+                  college.</a
+                >
+              </div>
             </div>
-        </section>
-
-        <!-- Conclusion section-->
-        <section id="contact">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Conclusion</h2><br>
-                        <p>In just 2 weeks, we were able to create a product that can (more or less) accurately predict whether or not a song belongs in a given playlist. With our limited team size and plenty of technical drawbacks, we still persevered and achieved an end result that satisfied our interests. Our project can be a stepping stone to greater things, such as true song recommendation or a genre classifier. Through this project we were shown the wider world of what is possible with AI. With our newfound knowledge and experience on data exploration and machine learning, this project is only the beginning of our AI careers.
-                        </p>
-                        <p class="lead"></p>
-                    </div>
+          </div>
+        </div>
+        <div class="row gx-5 justify-content-center">
+          <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+              <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">
+                  Student
                 </div>
+                <a class="text-decoration-none link-dark stretched-link"
+                  ><h5 class="card-title mb-3">Casen Shoemake</h5>
+                  I've been coding in Python for about a year now as a rising
+                  senior and I joined AI Camp to expand my knowledge on machine
+                  learning and data science. I hope to major in Computer Science
+                  and get a job in software development or artificial
+                  intelligence.</a
+                >
+              </div>
             </div>
-        </section>
-
-        <!-- Team section-->
-        <section id="team" class="bg-light">
-                <div class="container px-5", style="margin-bottom: 3rem !important;">
-                  <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-9 col-xl-6">
-                            <div class="text-center">
-                                <h2 class="fw-bolder">Team</h2>
-                                <p class="lead fw-normal text-muted mb-5">Meet the extraordinary Gravity Wells Team</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Student</div>
-                                    <a class="text-decoration-none link-dark stretched-link" ><h5 class="card-title mb-3">Aaron E. Simpson</h5></a>
-                                  <a class="text-decoration-none link-dark stretched-link" >My name is Aaron and I have little experience coding with C# and then Python3. I joined AI in order to get a good idea of machine learning and whether or not I want to pursue, and found out how much of a passion and fascination I have with AI. Hopefully I can find a long fulfilling career in working with AI.</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Student</div>
-                                    <a class="text-decoration-none link-dark stretched-link" ><h5 class="card-title mb-3">Patrick Howland</h5></a>
-                                  <a class="text-decoration-none link-dark stretched-link" >I am a rising senior and I have been coding in python for about 6 months. I wanted to do AI camp because it was going to be a nice segway into machine learning as well as learning how to work with a team.</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Student</div>
-                                    <a class="text-decoration-none link-dark stretched-link" ><h5 class="card-title mb-3">Shriya Dave</h5>I am a graduated senior and I have been coding for 2-3 years, starting with Java. I joined AI Camp to learn more about Data Science specifically and gain more experience before college.</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Student</div>
-                                    <a class="text-decoration-none link-dark stretched-link" ><h5 class="card-title mb-3">Casen Shoemake</h5>I've been coding in Python for about a year now as a rising senior and I joined AI Camp to expand my knowledge on machine learning and data science. I hope to major in Computer Science and get a job in software development or artificial intelligence.</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Student</div>
-                                    <a class="text-decoration-none link-dark stretched-link" ><h5 class="card-title mb-3">Sanjana Divakarla</h5></a>
-                                  <a class="text-decoration-none link-dark stretched-link" >I have done AP computer science A and learned some front end last year. I joined this AI camp to extend my knowledge on machine learning and data science. </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Intern</div>
-                                    <a class="text-decoration-none link-dark stretched-link" ><h5 class="card-title mb-3">Ian Wu</h5></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          </div>
+          <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+              <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">
+                  Student
                 </div>
-            </section>
+                <a class="text-decoration-none link-dark stretched-link"
+                  ><h5 class="card-title mb-3">Sanjana Divakarla</h5></a
+                >
+                <a class="text-decoration-none link-dark stretched-link"
+                  >I have done AP computer science A and learned some front end
+                  last year. I joined this AI camp to extend my knowledge on
+                  machine learning and data science.
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+              <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">
+                  Intern
+                </div>
+                <a class="text-decoration-none link-dark stretched-link"
+                  ><h5 class="card-title mb-3">Ian Wu</h5></a
+                >
+                <a class="text-decoration-none link-dark stretched-link"
+                  >I'm a data science intern , going into my first semester as a
+                  master's student in applied data science this fall! I'm
+                  passionate about AI, and my academic interests focus on
+                  leveraging NLP to make qualitative data actionable.</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Gravity Wells 2022</p></div>
-        </footer>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+      <div class="container px-4">
+        <p class="m-0 text-center text-white">
+          Copyright &copy; Gravity Wells 2022
+        </p>
+      </div>
+    </footer>
 
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+  </body>
 </html>
